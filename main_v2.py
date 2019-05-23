@@ -28,12 +28,11 @@ class Circuito():
         avance_total = [0,0,0,0]
         while not finish:
             time.sleep(0.1)
-            for i in range(len(self.corredores)):
+            for tortuga in self.corredores:
                 avance = randrange(1,7)
-                avance_total[i] += avance
-                self.corredores[i].forward(avance)
-                if avance_total[i] >= self.__finishline:
-                    print("Ganadora la Tortuga {}".format(self.__colorTurtle[i]))
+                tortuga.forward(avance)
+                if tortuga.position()[0] >= self.__finishline:
+                    print("Ha Ganado la Tortuga {}".format(tortuga.color()[0]))
                     finish = True
                     break     
         
